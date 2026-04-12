@@ -1,0 +1,17 @@
+{
+  "name": "mbti-test",
+  "version": "1.0.0",
+  "description": "MBTI人格类型测试网页应用",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"打开 index.html 进行测试\""
+  },
+  "keywords": [
+    "mbti",
+    "personality-test",
+    "psychology",
+    "web-app"
+  ],
+  "author": "",
+  "license": "MIT"
+}
