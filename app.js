@@ -4,10 +4,10 @@ class MBTITest {
         this.currentQuestion = 0;
         this.answers = [];
         this.scores = {
-            EI: 0,  // E高分，I低分
-            SN: 0,  // S高分，N低分
-            TF: 0,  // T高分，F低分
-            JP: 0   // J高分，P低分
+            EI: 0, // E高分，I低分
+            SN: 0, // S高分，N低分
+            TF: 0, // T高分，F低分
+            JP: 0 // J高分，P低分
         };
 
         this.initElements();
@@ -20,12 +20,15 @@ class MBTITest {
         this.startPage = document.getElementById('start-page');
         this.testPage = document.getElementById('test-page');
         this.resultPage = document.getElementById('result-page');
+        this.questionsPage = document.getElementById('questions-page');
 
         // 按钮
         this.startBtn = document.getElementById('start-btn');
         this.prevBtn = document.getElementById('prev-btn');
         this.restartBtn = document.getElementById('restart-btn');
         this.shareBtn = document.getElementById('share-btn');
+        this.viewQuestionsBtn = document.getElementById('view-questions-btn');
+        this.closeQuestionsBtn = document.getElementById('close-questions-btn');
 
         // 测试页面元素
         this.progressFill = document.getElementById('progress-fill');
@@ -33,6 +36,10 @@ class MBTITest {
         this.totalQuestions = document.getElementById('total-questions');
         this.questionText = document.getElementById('question-text');
         this.optionsContainer = document.querySelector('.options-container');
+
+        // 题库页面元素
+        this.questionsList = document.getElementById('questions-list');
+        this.dimensionFilter = document.getElementById('dimension-filter');
 
         // 结果页面元素
         this.typeBadge = document.querySelector('.type-badge .type-code');
@@ -48,20 +55,25 @@ class MBTITest {
         this.prevBtn.addEventListener('click', () => this.prevQuestion());
         this.restartBtn.addEventListener('click', () => this.restartTest());
         this.shareBtn.addEventListener('click', () => this.shareResult());
+        this.viewQuestionsBtn.addEventListener('click', () => this.showQuestionsPage());
+        this.closeQuestionsBtn.addEventListener('click', () => this.closeQuestionsPage());
+        this.dimensionFilter.addEventListener('change', () => this.filterQuestions());
 
         // 选项按钮事件
         this.optionsContainer.addEventListener('click', (e) => {
             if (e.target.classList.contains('option-btn') || e.target.closest('.option-btn')) {
                 const btn = e.target.classList.contains('option-btn') ? e.target : e.target.closest('.option-btn');
-                this.selectOption(parseInt(btn.dataset.value));
+                this.selectOption(btn.dataset.value);
             }
         });
 
         // 键盘快捷键
         document.addEventListener('keydown', (e) => {
             if (this.testPage.classList.contains('active')) {
-                if (e.key >= '1' && e.key <= '5') {
-                    this.selectOption(parseInt(e.key));
+                if (e.key === '1' || e.key === 'a' || e.key === 'A') {
+                    this.selectOption('A');
+                } else if (e.key === '2' || e.key === 'b' || e.key === 'B') {
+                    this.selectOption('B');
                 } else if (e.key === 'ArrowLeft' && !this.prevBtn.disabled) {
                     this.prevQuestion();
                 }
@@ -107,33 +119,33 @@ class MBTITest {
         // 更新题目
         this.questionText.textContent = question.text;
 
-        // 更新选项 - 使用两选项模式
+        // 更新选项 - 只显示两个选项（A或B）
         const options = this.optionsContainer.querySelectorAll('.option-btn');
         options.forEach((opt, index) => {
             opt.classList.remove('selected');
             const label = opt.querySelector('.option-label');
 
-            if (index < 2) {
-                // 前两个按钮显示实际选项
+            if (index === 0) {
+                // 第一个按钮显示选项A
                 opt.style.display = 'block';
-                if (index === 0) {
-                    label.textContent = question.optionA || '同意';
-                } else {
-                    label.textContent = question.optionB || '不同意';
-                }
+                opt.dataset.value = 'A';
+                label.textContent = question.optionA;
+            } else if (index === 1) {
+                // 第二个按钮显示选项B
+                opt.style.display = 'block';
+                opt.dataset.value = 'B';
+                label.textContent = question.optionB;
             } else {
-                // 隐藏其他按钮，或者显示程度选项
-                // 这里我们采用5级量表的方式
-                const labels = ['', '非常不同意', '不同意', '中立', '同意', '非常同意'];
-                opt.style.display = 'block';
-                label.textContent = labels[index + 1];
+                // 隐藏其他按钮
+                opt.style.display = 'none';
             }
         });
 
         // 如果已有答案，显示选中状态
         if (this.answers[this.currentQuestion] !== undefined) {
-            const selectedValue = this.answers[this.currentQuestion];
-            options[selectedValue - 1].classList.add('selected');
+            const selectedAnswer = this.answers[this.currentQuestion];
+            const selectedIndex = selectedAnswer === 'A' ? 0 : 1;
+            options[selectedIndex].classList.add('selected');
         }
 
         // 更新上一题按钮
@@ -141,13 +153,15 @@ class MBTITest {
     }
 
     selectOption(value) {
+        // value现在是'A'或'B'
         // 记录答案
         this.answers[this.currentQuestion] = value;
 
         // 更新选中状态
         const options = this.optionsContainer.querySelectorAll('.option-btn');
         options.forEach(opt => opt.classList.remove('selected'));
-        options[value - 1].classList.add('selected');
+        const selectedIndex = value === 'A' ? 0 : 1;
+        options[selectedIndex].classList.add('selected');
 
         // 延迟后进入下一题
         setTimeout(() => {
@@ -172,12 +186,14 @@ class MBTITest {
         this.scores = { EI: 0, SN: 0, TF: 0, JP: 0 };
 
         // 计算每个维度的分数
+        // 每个维度18题，选择A计+1分，选择B计-1分（如果reverse为false）
+        // 如果reverse为true，则选择A计-1分，选择B计+1分
         this.shuffledQuestions.forEach((question, index) => {
             if (this.answers[index] === undefined) return;
 
-            const value = this.answers[index];
-            const score = value - 3; // 转换为 -2 到 +2 的范围
+            const answer = this.answers[index];
             const dimension = question.dimension;
+            const score = (answer === 'A') ? 1 : -1;
 
             if (question.reverse) {
                 this.scores[dimension] -= score;
@@ -224,7 +240,8 @@ class MBTITest {
 
     updateDimensionBars() {
         // 计算百分比
-        const maxScore = 18 * 2; // 每个维度18题，每题最高2分
+        // 每个维度18题，每题+1或-1分，所以总分范围是-18到+18
+        const maxScore = 18;
 
         const ePercent = Math.round(50 + (this.scores.EI / maxScore) * 50);
         const iPercent = 100 - ePercent;
@@ -299,6 +316,59 @@ class MBTITest {
         setTimeout(() => {
             toast.remove();
         }, 3000);
+    }
+
+    showQuestionsPage() {
+        this.startPage.classList.remove('active');
+        this.questionsPage.classList.add('active');
+        this.displayQuestions('all');
+    }
+
+    closeQuestionsPage() {
+        this.questionsPage.classList.remove('active');
+        this.startPage.classList.add('active');
+    }
+
+    filterQuestions() {
+        const dimension = this.dimensionFilter.value;
+        this.displayQuestions(dimension);
+    }
+
+    displayQuestions(dimension) {
+        let filteredQuestions = questions;
+
+        if (dimension !== 'all') {
+            filteredQuestions = questions.filter(q => q.dimension === dimension);
+        }
+
+        this.questionsList.innerHTML = filteredQuestions.map((q, index) => {
+            const dimLabels = {
+                'EI': 'E-I (外向-内向)',
+                'SN': 'S-N (实感-直觉)',
+                'TF': 'T-F (思考-情感)',
+                'JP': 'J-P (判断-感知)'
+            };
+
+            return `
+                <div class="question-item">
+                    <div class="question-number-badge">#${index + 1}</div>
+                    <div class="question-dimension">${dimLabels[q.dimension]}</div>
+                    <div class="question-text-preview">${q.text}</div>
+                    <div class="question-options-preview">
+                        <div class="option-preview">
+                            <span class="option-letter">A:</span>
+                            <span class="option-text">${q.optionA}</span>
+                            <span class="option-indicator">(${q.reverse ? '倾向第二字母' : '倾向第一字母'})</span>
+                        </div>
+                        <div class="option-preview">
+                            <span class="option-letter">B:</span>
+                            <span class="option-text">${q.optionB}</span>
+                            <span class="option-indicator">(${q.reverse ? '倾向第一字母' : '倾向第二字母'})</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
     }
 }
 

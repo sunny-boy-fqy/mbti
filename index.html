@@ -32,6 +32,7 @@
                     </div>
                 </div>
                 <button id="start-btn" class="primary-btn">开始测试</button>
+                <button id="view-questions-btn" class="secondary-btn" style="margin-top: 10px;">查看题库</button>
                 <p class="disclaimer">本测试基于 MBTI 理论，仅供参考</p>
             </div>
         </div>
@@ -42,32 +43,45 @@
                 <div class="progress-fill" id="progress-fill"></div>
             </div>
             <div class="progress-text">
-                <span id="question-number">1</span> / <span id="total-questions">60</span>
+                <span id="question-number">1</span> / <span id="total-questions">72</span>
             </div>
 
             <div class="question-container">
                 <h2 id="question-text"></h2>
                 <div class="options-container">
-                    <button class="option-btn" data-value="1">
-                        <span class="option-label">非常不同意</span>
+                    <button class="option-btn" data-value="A">
+                        <span class="option-label">选项A</span>
                     </button>
-                    <button class="option-btn" data-value="2">
-                        <span class="option-label">不同意</span>
-                    </button>
-                    <button class="option-btn" data-value="3">
-                        <span class="option-label">中立</span>
-                    </button>
-                    <button class="option-btn" data-value="4">
-                        <span class="option-label">同意</span>
-                    </button>
-                    <button class="option-btn" data-value="5">
-                        <span class="option-label">非常同意</span>
+                    <button class="option-btn" data-value="B">
+                        <span class="option-label">选项B</span>
                     </button>
                 </div>
             </div>
 
             <div class="nav-buttons">
                 <button id="prev-btn" class="secondary-btn" disabled>上一题</button>
+            </div>
+        </div>
+
+        <!-- 题库查看页面 -->
+        <div id="questions-page" class="page">
+            <div class="questions-content">
+                <div class="questions-header">
+                    <h1>题库内容</h1>
+                    <button id="close-questions-btn" class="secondary-btn">返回</button>
+                </div>
+                <div class="questions-filter">
+                    <label>筛选维度：
+                        <select id="dimension-filter">
+                            <option value="all">全部</option>
+                            <option value="EI">E-I (外向-内向)</option>
+                            <option value="SN">S-N (实感-直觉)</option>
+                            <option value="TF">T-F (思考-情感)</option>
+                            <option value="JP">J-P (判断-感知)</option>
+                        </select>
+                    </label>
+                </div>
+                <div id="questions-list" class="questions-list"></div>
             </div>
         </div>
 
