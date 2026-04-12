@@ -107,9 +107,28 @@ class MBTITest {
         // 更新题目
         this.questionText.textContent = question.text;
 
-        // 更新选项状态
+        // 更新选项 - 使用两选项模式
         const options = this.optionsContainer.querySelectorAll('.option-btn');
-        options.forEach(opt => opt.classList.remove('selected'));
+        options.forEach((opt, index) => {
+            opt.classList.remove('selected');
+            const label = opt.querySelector('.option-label');
+
+            if (index < 2) {
+                // 前两个按钮显示实际选项
+                opt.style.display = 'block';
+                if (index === 0) {
+                    label.textContent = question.optionA || '同意';
+                } else {
+                    label.textContent = question.optionB || '不同意';
+                }
+            } else {
+                // 隐藏其他按钮，或者显示程度选项
+                // 这里我们采用5级量表的方式
+                const labels = ['', '非常不同意', '不同意', '中立', '同意', '非常同意'];
+                opt.style.display = 'block';
+                label.textContent = labels[index + 1];
+            }
+        });
 
         // 如果已有答案，显示选中状态
         if (this.answers[this.currentQuestion] !== undefined) {
@@ -205,7 +224,7 @@ class MBTITest {
 
     updateDimensionBars() {
         // 计算百分比
-        const maxScore = 15 * 2; // 每个维度15题，每题最高2分
+        const maxScore = 18 * 2; // 每个维度18题，每题最高2分
 
         const ePercent = Math.round(50 + (this.scores.EI / maxScore) * 50);
         const iPercent = 100 - ePercent;
@@ -253,7 +272,7 @@ class MBTITest {
     shareResult() {
         const type = this.determineType();
         const typeInfo = personalityTypes[type];
-        const text = `我的MBTI人格类型是 ${type} - ${typeInfo.name}！快来测测你的人格类型吧！`;
+        const text = `我的MBTI人格类型是 ${type} - ${typeInfo.name}（${typeInfo.nickname}）！快来测测你的人格类型吧！`;
 
         if (navigator.share) {
             navigator.share({
