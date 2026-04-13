@@ -14,13 +14,13 @@
 
 ## 在线体验
 
-[点击这里访问测试页面](https://your-username.github.io/mbti/)
+[点击这里访问测试页面](https://sunny-boy-fqy.github.io/mbti/)
 
 ## 本地运行
 
 1. 克隆仓库：
 ```bash
-git clone https://github.com/your-username/mbti.git
+git clone https://github.com/sunny-boy-fqy/mbti.git
 cd mbti
 ```
 
