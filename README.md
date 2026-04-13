@@ -1,101 +1,85 @@
-# MBTI 人格测试
+# MBTI 人格测试 / MBTI Personality Test
 
-一个基于 Web 的 MBTI 人格类型测试工具，可部署到 GitHub Pages。
+一个可部署到 GitHub Pages 的纯前端 MBTI 测试工具，支持中文与英文界面。
+A static MBTI web app for GitHub Pages with both Chinese and English UI.
 
-## 功能特点
+- 在线体验 / Live Demo: <https://sunny-boy-fqy.github.io/mbti/>
+- 英文说明 / English-only README: [README.en.md](./README.en.md)
 
-- 🧠 **104道精心设计的测试题目** - 每个维度26题，覆盖多种生活场景
-- 📚 **题库查看功能** - 可浏览所有题目的详细内容
-- 📊 四个维度的详细分析展示
-- 🎯 16种人格类型的详细描述
-- 📱 响应式设计，支持移动端
-- ⌨️ 支持键盘快捷键操作
-- 🔗 支持分享测试结果
+## 中文说明
 
-## 在线体验
+### 功能
 
-[点击这里访问测试页面](https://sunny-boy-fqy.github.io/mbti/)
+- 104 道题（4 个维度各 26 题）
+- 16 型人格结果与维度比例展示
+- 题库浏览与按维度筛选
+- 键盘快捷键（`1/A` 选 A，`2/B` 选 B，`←` 上一题）
+- 结果分享（Web Share / 复制到剪贴板）
+- 中英文界面切换（右上角语言选择）
 
-## 本地运行
+### 本地运行
 
-1. 克隆仓库：
+1. 克隆仓库
+2. 进入项目目录
+3. 直接用浏览器打开 `index.html`
+
 ```bash
 git clone https://github.com/sunny-boy-fqy/mbti.git
 cd mbti
 ```
 
-2. 用浏览器打开 `index.html` 即可
+### 技术栈
 
-## 题库说明
+- HTML / CSS / JavaScript
+- 纯静态部署，无后端依赖
 
-### 题库结构
+### 题库说明
 
-- **E-I维度（外向-内向）**: 26题
-- **S-N维度（实感-直觉）**: 26题
-- **T-F维度（思考-情感）**: 26题
-- **J-P维度（判断-感知）**: 26题
-- **总计**: 104题
+- 维度：`EI` / `SN` / `TF` / `JP`
+- 每题二选一（A/B）
+- `reverse` 字段控制 A/B 与维度字母方向的映射
+- 计分后生成 4 维倾向与最终类型
 
-### 查看题库
+### 注意事项
 
-点击"查看题库"按钮可以：
-- 浏览所有104道题目
-- 按维度筛选题目
-- 了解每题的选项和倾向性
-
-### AI题库生成
-
-本项目提供了 `AI_PROMPT_TEMPLATE.md` 文件，这是一个完整的AI提示词模板，用于指导AI生成高质量的MBTI测试题目。
-
-**使用方法**：
-1. 阅读 AI_PROMPT_TEMPLATE.md 了解设计原则
-2. 指定需要生成的维度和题目数量
-3. 参考模板中的质量标准验证生成的题目
-
-## 部署到 GitHub Pages
-
-1. Fork 本仓库
-2. 进入仓库的 Settings > Pages
-3. Source 选择 `main` 分支
-4. 保存后等待部署完成
-
-## 技术栈
-
-- 纯 HTML/CSS/JavaScript
-- 无需后端，纯静态部署
-- 响应式设计
-- 支持键盘快捷键（1/A选择选项A，2/B选择选项B）
-
-## MBTI 简介
-
-MBTI（Myers-Briggs Type Indicator）是一种人格类型指标，基于四个维度：
-
-- **E/I** - 外向/内向：获取能量的方式
-- **S/N** - 实感/直觉：获取信息的方式
-- **T/F** - 思考/情感：做决定的方式
-- **J/P** - 判断/感知：对待生活的方式
-
-共组合出16种人格类型。
-
-## 评分逻辑
-
-- 每道题采用二选一模式（选项A或B）
-- 根据选择计分：选择A为+1或-1分（取决于reverse字段）
-- reverse字段用于平衡测量偏差
-- 最终分数转换为百分比显示各维度倾向
-
-## 扩展题库
-
-欢迎使用AI生成新题目：
-1. 参考 AI_PROMPT_TEMPLATE.md 中的标准
-2. 确保题目清晰无歧义
-3. 选项与维度高度相关
-4. 正确设置reverse字段
-
-## 许可证
-
-MIT License
+- 测试仅供自我了解参考，不建议作为高风险决策依据。
 
 ---
 
-**注意**: MBTI测试仅供参考，不应作为重大决策的唯一依据。人的性格是复杂和多面的，测试结果只是提供一种了解自我的视角。
+## English
+
+### Features
+
+- 104 questions total (26 per dimension)
+- 16 personality type results with dimension percentages
+- Question bank browser with dimension filter
+- Keyboard shortcuts (`1/A` for A, `2/B` for B, `←` previous)
+- Result sharing (Web Share API / clipboard fallback)
+- Chinese/English UI toggle (language selector at top-right)
+
+### Run Locally
+
+1. Clone the repository
+2. Enter the project folder
+3. Open `index.html` directly in a browser
+
+```bash
+git clone https://github.com/sunny-boy-fqy/mbti.git
+cd mbti
+```
+
+### Tech Stack
+
+- HTML / CSS / JavaScript
+- Fully static deployment (no backend)
+
+### Question Bank and Scoring
+
+- Dimensions: `EI`, `SN`, `TF`, `JP`
+- Binary options (A/B) for each question
+- `reverse` controls how A/B maps to dimension poles
+- Final type and percentage bars are computed from dimension scores
+
+### Disclaimer
+
+- This test is for personal reference only and should not be used as the sole basis for important life decisions.

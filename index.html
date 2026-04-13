@@ -8,32 +8,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="toolbar">
+        <label for="lang-select" class="lang-label" id="lang-label">语言</label>
+        <select id="lang-select" class="lang-select">
+            <option value="zh">中文</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+
     <div class="container">
         <!-- 开始页面 -->
         <div id="start-page" class="page active">
             <div class="start-content">
                 <div class="logo">
                     <span class="logo-icon">🧠</span>
-                    <h1>MBTI 人格测试</h1>
+                    <h1 id="app-title">MBTI 人格测试</h1>
                 </div>
-                <p class="subtitle">探索你的性格类型，了解真实的自己</p>
+                <p class="subtitle" id="app-subtitle">探索你的性格类型，了解真实的自己</p>
                 <div class="info-cards">
                     <div class="info-card">
                         <span class="card-icon">⏱️</span>
-                        <span>约 5 分钟</span>
+                        <span id="card-time-text">约 8 分钟</span>
                     </div>
                     <div class="info-card">
                         <span class="card-icon">📝</span>
-                        <span>72 道题目</span>
+                        <span id="card-questions-text">104 道题目</span>
                     </div>
                     <div class="info-card">
                         <span class="card-icon">🎯</span>
-                        <span>16 种人格</span>
+                        <span id="card-types-text">16 种人格</span>
                     </div>
                 </div>
                 <button id="start-btn" class="primary-btn">开始测试</button>
                 <button id="view-questions-btn" class="secondary-btn" style="margin-top: 10px;">查看题库</button>
-                <p class="disclaimer">本测试基于 MBTI 理论，仅供参考</p>
+                <p class="disclaimer" id="app-disclaimer">本测试基于 MBTI 理论，仅供参考</p>
             </div>
         </div>
 
@@ -43,7 +51,7 @@
                 <div class="progress-fill" id="progress-fill"></div>
             </div>
             <div class="progress-text">
-                <span id="question-number">1</span> / <span id="total-questions">72</span>
+                <span id="question-number">1</span> / <span id="total-questions">104</span>
             </div>
 
             <div class="question-container">
@@ -67,17 +75,17 @@
         <div id="questions-page" class="page">
             <div class="questions-content">
                 <div class="questions-header">
-                    <h1>题库内容</h1>
+                    <h1 id="questions-title">题库内容</h1>
                     <button id="close-questions-btn" class="secondary-btn">返回</button>
                 </div>
                 <div class="questions-filter">
-                    <label>筛选维度：
+                    <label><span id="filter-label-text">筛选维度：</span>
                         <select id="dimension-filter">
-                            <option value="all">全部</option>
-                            <option value="EI">E-I (外向-内向)</option>
-                            <option value="SN">S-N (实感-直觉)</option>
-                            <option value="TF">T-F (思考-情感)</option>
-                            <option value="JP">J-P (判断-感知)</option>
+                            <option value="all" id="filter-option-all">全部</option>
+                            <option value="EI" id="filter-option-ei">E-I (外向-内向)</option>
+                            <option value="SN" id="filter-option-sn">S-N (实感-直觉)</option>
+                            <option value="TF" id="filter-option-tf">T-F (思考-情感)</option>
+                            <option value="JP" id="filter-option-jp">J-P (判断-感知)</option>
                         </select>
                     </label>
                 </div>
@@ -89,8 +97,8 @@
         <div id="result-page" class="page">
             <div class="result-content">
                 <div class="result-header">
-                    <h1>测试完成！</h1>
-                    <p>你的人格类型是</p>
+                    <h1 id="result-title">测试完成！</h1>
+                    <p id="result-subtitle">你的人格类型是</p>
                 </div>
 
                 <div class="type-badge" id="type-badge">
@@ -102,8 +110,8 @@
                 <div class="dimension-bars">
                     <div class="dimension">
                         <div class="dimension-labels">
-                            <span class="label-left">外向 (E)</span>
-                            <span class="label-right">内向 (I)</span>
+                            <span class="label-left" id="label-e-left">外向 (E)</span>
+                            <span class="label-right" id="label-e-right">内向 (I)</span>
                         </div>
                         <div class="dimension-bar">
                             <div class="bar-fill e-bar" id="e-bar"></div>
@@ -117,8 +125,8 @@
 
                     <div class="dimension">
                         <div class="dimension-labels">
-                            <span class="label-left">实感 (S)</span>
-                            <span class="label-right">直觉 (N)</span>
+                            <span class="label-left" id="label-s-left">实感 (S)</span>
+                            <span class="label-right" id="label-s-right">直觉 (N)</span>
                         </div>
                         <div class="dimension-bar">
                             <div class="bar-fill s-bar" id="s-bar"></div>
@@ -132,8 +140,8 @@
 
                     <div class="dimension">
                         <div class="dimension-labels">
-                            <span class="label-left">思考 (T)</span>
-                            <span class="label-right">情感 (F)</span>
+                            <span class="label-left" id="label-t-left">思考 (T)</span>
+                            <span class="label-right" id="label-t-right">情感 (F)</span>
                         </div>
                         <div class="dimension-bar">
                             <div class="bar-fill t-bar" id="t-bar"></div>
@@ -147,8 +155,8 @@
 
                     <div class="dimension">
                         <div class="dimension-labels">
-                            <span class="label-left">判断 (J)</span>
-                            <span class="label-right">感知 (P)</span>
+                            <span class="label-left" id="label-j-left">判断 (J)</span>
+                            <span class="label-right" id="label-j-right">感知 (P)</span>
                         </div>
                         <div class="dimension-bar">
                             <div class="bar-fill j-bar" id="j-bar"></div>
@@ -172,6 +180,7 @@
     </div>
 
     <script src="questions.js"></script>
+    <script src="i18n.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

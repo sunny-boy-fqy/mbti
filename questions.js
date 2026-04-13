@@ -211,18 +211,18 @@ const questions = [
     reverse: false
   },
   {
-    text: "当你对一个约会感到放心时，你更倾向谈论：",
+    text: "当你和熟悉的人深入交流时，你更倾向谈论：",
     dimension: "SN",
     optionA: "未来、创新和生活的种种可能性",
     optionB: "实际的、具体的、「此时此地」的事物",
-    reverse: false
+    reverse: true
   },
   {
     text: "在处理问题时，你更喜欢：",
     dimension: "SN",
     optionA: "先了解整体情况和大局",
     optionB: "先掌握具体细节",
-    reverse: false
+    reverse: true
   },
   {
     text: "你更愿意：",
@@ -232,74 +232,74 @@ const questions = [
     reverse: false
   },
   {
-    text: "假如你是一位老师，你会选择教：",
+    text: "学习新主题时，你更容易被哪类内容吸引：",
     dimension: "SN",
-    optionA: "基于事实和数据的课程",
-    optionB: "涉及理论和概念的课程",
-    reverse: true
+    optionA: "具体案例和事实数据",
+    optionB: "抽象理论和概念模型",
+    reverse: false
   },
   {
-    text: "你和哪些人比较合得来：",
+    text: "你更容易和哪类同伴高效协作：",
     dimension: "SN",
-    optionA: "富有想象力和创意的人",
-    optionB: "现实和务实的人",
-    reverse: false
+    optionA: "富有想象力、经常提出新思路的人",
+    optionB: "务实稳健、重视执行的人",
+    reverse: true
   },
   {
     text: "你宁愿被人认为是一个：",
     dimension: "SN",
     optionA: "实事求是的人",
     optionB: "有创意和洞察力的人",
-    reverse: true
+    reverse: false
   },
   {
     text: "你会选择哪类人做朋友：",
     dimension: "SN",
     optionA: "经常提出新想法的人",
     optionB: "脚踏实地的人",
-    reverse: false
+    reverse: true
   },
   {
     text: "做大家都做的事，你比较喜欢：",
     dimension: "SN",
     optionA: "按照既定的方法",
     optionB: "尝试新的方法",
-    reverse: true
+    reverse: false
   },
   {
     text: "你通常较喜欢的科目是：",
     dimension: "SN",
     optionA: "讲授概念和原理的",
     optionB: "讲授事实和数据的",
-    reverse: false
+    reverse: true
   },
   {
     text: "为乐趣而阅读时，你会：",
     dimension: "SN",
     optionA: "喜欢新奇或创新的表达方式",
     optionB: "喜欢直接明了的叙述",
-    reverse: false
+    reverse: true
   },
   {
-    text: "你宁愿替哪一类上司（或老师）工作：",
+    text: "面对新项目时，你更信任哪种指导方式：",
     dimension: "SN",
-    optionA: "性格善良，但有时前后不一致",
-    optionB: "言辞犀利，但逻辑清晰",
-    reverse: true
+    optionA: "给出清晰步骤和可执行细节",
+    optionB: "鼓励探索方向并自主创新",
+    reverse: false
   },
   {
     text: "面对问题，你会：",
     dimension: "SN",
     optionA: "采用已验证的方法",
     optionB: "分析问题，寻找新的解决方案",
-    reverse: true
+    reverse: false
   },
   {
-    text: "哪类人更吸引你：",
+    text: "哪类同伴更吸引你：",
     dimension: "SN",
-    optionA: "思维敏捷、聪明的人",
-    optionB: "务实、有丰富常识的人",
-    reverse: false
+    optionA: "善于联想、提出新观点的人",
+    optionB: "重视经验、注重落地的人",
+    reverse: true
   },
   {
     text: "你更看重：",
@@ -385,70 +385,70 @@ const questions = [
     dimension: "TF",
     optionA: "他人需要情感支持的时刻",
     optionB: "他人的逻辑错误",
-    reverse: false
+    reverse: true
   },
   {
-    text: "当关系结束时，你通常会：",
+    text: "当计划没有按预期进行时，你通常会：",
     dimension: "TF",
-    optionA: "深陷情感，难以走出来",
-    optionB: "理性接受，继续前进",
-    reverse: false
+    optionA: "先关注情绪影响，再推进调整",
+    optionB: "先分析原因，再制定对策",
+    reverse: true
   },
   {
     text: "在一段关系中，你更看重：",
     dimension: "TF",
     optionA: "情感的共鸣和理解",
     optionB: "思想的契合和理性沟通",
-    reverse: false
+    reverse: true
   },
   {
     text: "当你不同意他人的想法时：",
     dimension: "TF",
     optionA: "尽量避免伤害对方的感受",
-    optionB: "直言不讳，因为对的就是对的",
-    reverse: false
+    optionB: "直接指出问题，优先讨论事实",
+    reverse: true
   },
   {
     text: "认识你的人倾向于形容你为：",
     dimension: "TF",
     optionA: "热情和敏感",
     optionB: "逻辑和明确",
-    reverse: false
+    reverse: true
   },
   {
     text: "你把大部分与他人的相遇视为：",
     dimension: "TF",
     optionA: "友善和有意义的",
     optionB: "有特定目的的",
-    reverse: false
+    reverse: true
   },
   {
-    text: "你是否经常让：",
+    text: "在重要决策中，你通常更依赖：",
     dimension: "TF",
-    optionA: "你的情感支配你的理智",
-    optionB: "你的理智主宰你的情感",
-    reverse: false
+    optionA: "价值观和感受",
+    optionB: "逻辑和证据",
+    reverse: true
   },
   {
     text: "你更看重：",
     dimension: "TF",
     optionA: "和谐的人际关系",
     optionB: "客观的分析结果",
-    reverse: false
+    reverse: true
   },
   {
-    text: "哪个是较高的赞誉：",
+    text: "别人更常肯定你的哪一面：",
     dimension: "TF",
-    optionA: "能干和有效率",
-    optionB: "富有同情心",
-    reverse: true
+    optionA: "做事高效、判断清晰",
+    optionB: "善于共情、照顾他人",
+    reverse: false
   },
   {
     text: "作决定时，你认为更重要的是：",
     dimension: "TF",
     optionA: "依据事实和逻辑",
     optionB: "考虑他人的感受和意见",
-    reverse: true
+    reverse: false
   },
   {
     text: "你认为自己处理事情时较为：",
@@ -469,7 +469,7 @@ const questions = [
     dimension: "TF",
     optionA: "人们需要情感支持时",
     optionB: "人们的观点不合逻辑时",
-    reverse: false
+    reverse: true
   },
   {
     text: "你认为以下哪种更重要：",
@@ -483,98 +483,98 @@ const questions = [
     dimension: "TF",
     optionA: "给予情感上的支持和安慰",
     optionB: "给出实际的建议和解决方案",
-    reverse: false
+    reverse: true
   },
   {
     text: "在争论中，你更注重：",
     dimension: "TF",
     optionA: "维护关系和避免伤害",
     optionB: "表达真相和逻辑正确",
-    reverse: false
+    reverse: true
   },
   {
     text: "评价他人时，你更看重：",
     dimension: "TF",
     optionA: "他们的善意和动机",
     optionB: "他们的能力和成果",
-    reverse: false
+    reverse: true
   },
   {
     text: "面对批评，你通常会：",
     dimension: "TF",
     optionA: "感到受伤，需要时间恢复",
     optionB: "理性分析，看是否有道理",
-    reverse: false
+    reverse: true
   },
   {
     text: "你在工作中更注重：",
     dimension: "TF",
     optionA: "团队和谐和士气",
     optionB: "效率和结果",
-    reverse: false
+    reverse: true
   },
   {
     text: "给他人反馈时，你会：",
     dimension: "TF",
     optionA: "委婉表达，照顾感受",
     optionB: "直接了当，指出问题",
-    reverse: false
+    reverse: true
   },
   {
     text: "做重要决定时，你会：",
     dimension: "TF",
     optionA: "考虑对他人的影响",
     optionB: "专注于逻辑分析",
-    reverse: false
+    reverse: true
   },
   {
     text: "你更倾向于：",
     dimension: "TF",
     optionA: "用心感受",
     optionB: "用脑思考",
-    reverse: false
+    reverse: true
   },
   {
     text: "面对冲突，你更倾向于：",
     dimension: "TF",
     optionA: "寻找共同点，达成和解",
     optionB: "分析问题，找出最佳方案",
-    reverse: false
+    reverse: true
   },
   {
     text: "你更欣赏：",
     dimension: "TF",
     optionA: "善良和同理心",
     optionB: "公正和客观",
-    reverse: false
+    reverse: true
   },
   {
     text: "在团队中，你通常扮演：",
     dimension: "TF",
     optionA: "调解者，维护和谐",
     optionB: "分析者，提供客观意见",
-    reverse: false
+    reverse: true
   },
 
   // ==================== J-P 维度 (判断-感知) - 共26题 ====================
   {
-    text: "如果朋友前一天才邀请你出国度假，你会：",
+    text: "如果朋友临时邀请你参加周末短途活动，你会：",
     dimension: "JP",
     optionA: "先查看日程安排是否可行",
     optionB: "立即收拾行李准备出发",
     reverse: false
   },
   {
-    text: "在第一次约会中，如果对方迟到了：",
+    text: "在团队活动中，如果有人迟到了：",
     dimension: "JP",
-    optionA: "你会很不高兴",
-    optionB: "你不太在意",
+    optionA: "你会希望流程按计划推进",
+    optionB: "你通常可以灵活调整节奏",
     reverse: false
   },
   {
     text: "你更喜欢：",
     dimension: "JP",
-    optionA: "事先知道约会的详细安排",
+    optionA: "事先知道活动的详细安排",
     optionB: "让事情自然发生，不做太多计划",
     reverse: false
   },
@@ -651,7 +651,7 @@ const questions = [
   {
     text: "你比较喜欢：",
     dimension: "JP",
-    optionA: "很早便安排好约会和社交活动",
+    optionA: "很早便安排好活动和社交计划",
     optionB: "看当时的心情再决定",
     reverse: false
   },
@@ -741,86 +741,86 @@ const questions = [
   }
 ];
 
-// 16种人格类型详细描述
+// 16种人格类型描述（中性版本）
 const personalityTypes = {
   "INTJ": {
     name: "建筑师",
     nickname: "战略家",
-    description: "INTJ具有强大动力与本意来达成目的与创意。有宏大的愿景且能快速在众多外界事件中找出有意义的模范。对所承负职务，具良好能力于策划工作并完成。具怀疑心、挑剔性、独立性、果决，对专业水准及绩效要求高。他们是天生的战略家，善于规划未来，追求高效和完美。虽然外表冷静理性，但内心有着坚定的信念和目标。"
+    description: "INTJ通常重视长期规划与系统思考，擅长把复杂目标拆解为可执行路径。面对问题时偏向独立分析，追求高标准和清晰结构。"
   },
   "INTP": {
     name: "逻辑学家",
     nickname: "思考者",
-    description: "INTP安静、自持、弹性及具适应力。特别喜爱追求理论与科学事理。习于以逻辑及分析来解决问题，是最好的问题解决者。最有兴趣于创意事务及特定工作，对聚会与闲聊无大兴趣。追求可发挥个人强烈兴趣的生涯。追求发展对有兴趣事务之逻辑解释。他们拥有丰富的内心世界，思维独特而深刻。"
+    description: "INTP通常对概念、模型和原理有强烈兴趣，喜欢从不同角度理解问题本质。做决定时倾向理性推演，并保持开放的思维空间。"
   },
   "ENTJ": {
     name: "指挥官",
-    nickname: "领导者",
-    description: "ENTJ坦诚、具决策力的活动领导者。长于发展与实施广泛的系统以解决组织的问题。专精于具内涵与智能的谈话如对公众演讲。乐于经常吸收新知且能广开信息管道。易生过度自信，会强于表达自已创见。喜于长程策划及目标设定。他们是天生的领导者，具有强烈的意志和清晰的战略眼光。"
+    nickname: "组织者",
+    description: "ENTJ通常擅长设定方向并推动执行，关注效率、结果和系统优化。在团队中常主动承担统筹角色，善于协调资源达成目标。"
   },
   "ENTP": {
     name: "辩论家",
     nickname: "创新者",
-    description: "ENTP反应快、聪明、长于多样事务。具激励伙伴、敏捷及直言讳专长。会为了有趣对问题的两面加予争辩。对解决新及挑战性的问题富有策略，但会轻忽或厌烦经常的任务与细节。兴趣多元，易倾向于转移至新生的兴趣。对所想要的会有技巧地找出逻辑的理由。长于看清他人，有智能去解决新或有挑战的问题。"
+    description: "ENTP通常思维活跃、点子丰富，乐于探索新方案和多种可能性。面对挑战时常以灵活策略应对，并善于发起讨论激发新观点。"
   },
   "INFJ": {
     name: "提倡者",
-    nickname: "理想主义者",
-    description: "INFJ因为坚忍、创意及必须达成的意图而能成功。会在工作中投注最大的努力。默默强力的、诚挚的及用心的关切他人。因坚守原则而受敬重。提出造福大众利益的明确远景而为人所尊敬与追随。追求创见、关系及物质财物的意义及关联。想了解什么能激励别人及对他人具洞察力。光明正大且坚信其价值观。有组织且果断地履行其愿景。"
+    nickname: "洞察者",
+    description: "INFJ通常关注意义与价值，善于理解他人动机并进行深度思考。行动上既重视原则，也会通过有计划的方式推动理想落地。"
   },
   "INFP": {
     name: "调停者",
-    nickname: "治愈者",
-    description: "INFP安静观察者，具理想性与对其价值观及重要之人具忠诚心。希望外在生活形态与内在价值观相吻合。具好奇心且很快能看出机会所在。常担负开发创意的触媒者。除非价值观受侵犯，行事会具弹性、适应力高且承受力强。具想了解及发展他人潜能的企图。想作太多且作事全神贯注。对所处境遇及拥有不太在意。具适应力、有弹性除非价值观受到威胁。"
+    nickname: "理想主义者",
+    description: "INFP通常重视内在价值和真实感受，倾向在尊重差异的环境中表达想法。面对选择时会兼顾个人信念与他人处境。"
   },
   "ENFJ": {
     name: "主人公",
-    nickname: "教育者",
-    description: "ENFJ热忱、易感应及负责任的，具能鼓励他人的领导风格。对别人所想或希求会表达真正关切且切实用心去处理。能怡然且技巧性地带领团体讨论或演示文稿提案。爱交际、受欢迎及富同情心。对称许及批评很在意。喜欢带引别人且能使别人或团体发挥潜能。"
+    nickname: "引导者",
+    description: "ENFJ通常善于理解群体情绪并凝聚共识，重视关系质量与共同成长。在协作中常主动支持他人，推动团队朝目标前进。"
   },
   "ENFP": {
     name: "竞选者",
-    nickname: "激励者",
-    description: "ENFP充满热忱、活力充沛、聪明的、富想象力的，视生命充满机会但期能得自他人肯定与支持。几乎能达成所有有兴趣的事。对难题很快就有对策并能对有困难的人施予援手。依赖能改善的能力而无须预作规划准备。为达目的常能找出强制自己为之的理由。即兴执行者。"
+    nickname: "激发者",
+    description: "ENFP通常富有热情与创造力，乐于尝试新体验并连接不同想法。做事时重视灵感和意义，也擅长带动团队氛围。"
   },
   "ISTJ": {
     name: "物流师",
-    nickname: "检查员",
-    description: "ISTJ严肃、安静、藉由集中心志与全力投入、及可被信赖获致成功。行事务实、有序、实际、逻辑、真实及可信赖十分留意且乐于任何事。工作、居家、生活均有良好组织及有序。负责任。照设定成效来作出决策且不畏阻挠与闲言会坚定为之。重视传统与忠诚。传统性的思考者或经理。"
+    nickname: "执行者",
+    description: "ISTJ通常重视规则、秩序与责任，做事稳健且注重细节一致性。面对任务时倾向按计划推进，确保结果可靠可复盘。"
   },
   "ISFJ": {
     name: "守卫者",
-    nickname: "保护者",
-    description: "ISFJ安静、和善、负责任且有良心。行事尽责投入。安定性高，常居项目工作或团体之安定力量。愿投入、吃苦及力求精确。兴趣通常不在于科技方面。对细节事务有耐心。忠诚、考虑周到、知性且会关切他人感受。致力于创构有序及和谐的工作与家庭环境。"
+    nickname: "支持者",
+    description: "ISFJ通常细致、可靠，关注他人需求与团队稳定。处理事务时偏好清晰流程，并通过持续投入保障整体运转。"
   },
   "ESTJ": {
     name: "总经理",
-    nickname: "监督者",
-    description: "ESTJ务实、真实、事实倾向，具企业或技术天份。不喜欢抽象理论；最喜欢学习可立即运用事理。喜好组织与管理活动且专注以最有效率方式行事以达致成效。具决断力、关注细节且很快作出决策，是优秀行政者。会忽略他人感受。喜作领导者或企业主管。"
+    nickname: "管理者",
+    description: "ESTJ通常擅长组织流程、明确分工并推动落实。面对目标时重视效率与可执行性，倾向通过结构化方法达成成果。"
   },
   "ESFJ": {
     name: "执政官",
-    nickname: "帮助者",
-    description: "ESFJ诚挚、爱说话、合作性高、受欢迎、光明正大的，是天生的合作者及活跃的组织成员。重和谐且长于创造和谐。常作对他人有益事务。给予鼓励及称许会有更佳工作成效。最有兴趣于会直接及有形影响人们生活的事务。喜欢与他人共事去精确且准时地完成工作。"
+    nickname: "协调者",
+    description: "ESFJ通常重视合作与互相支持，擅长维系团队关系和日常协作节奏。在执行任务时关注实际影响与成员感受。"
   },
   "ISTP": {
     name: "鉴赏家",
-    nickname: "工匠",
-    description: "ISTP冷静旁观者，安静、预留余地、弹性及会以无偏见的好奇心与未预期原始的幽默观察与分析。有兴趣于探索原因及效果，技术事件是为何及如何运作且使用逻辑的原理组构事实、重视效能。擅长于掌握问题核心及找出解决方式。分析成事的缘由且能实时由大量资料中找出实际问题的核心。"
+    nickname: "实干者",
+    description: "ISTP通常偏好通过观察与实践解决问题，擅长快速定位关键变量。面对变化时具备较强适应力，行动务实而直接。"
   },
   "ISFP": {
     name: "探险家",
-    nickname: "艺术家",
-    description: "ISFP羞怯的、安宁和善地、敏感的、亲切的、且行事谦虚。喜于避开争论，不对他人强加已见或价值观。无意于领导却常是忠诚的追随者。办事不急躁，安于现状无意于以过度的急切或努力破坏现况，且非成果导向。喜欢有自有的空间及照自订的时程办事。"
+    nickname: "创作者",
+    description: "ISFP通常重视体验与个人价值表达，做事灵活且注重当下感受。在关系中倾向温和沟通，尊重彼此边界与差异。"
   },
   "ESTP": {
     name: "企业家",
-    nickname: "说服者",
-    description: "ESTP擅长现场实时解决问题，是优秀的解决问题者。喜欢办事并乐于其中及过程。倾向于喜好技术事务及运动，交结同好友人。具适应性、容忍度、务实性；投注心力于会很快具成效工作。不喜欢冗长概念的解释及理论。最专精于可操作、处理、分解或组合的真实事务。"
+    nickname: "行动者",
+    description: "ESTP通常反应迅速、偏好实战，善于在动态环境中抓住机会。面对问题时倾向先行动再迭代，并关注即时反馈。"
   },
   "ESFP": {
     name: "表演者",
-    nickname: "娱乐者",
-    description: "ESFP外向、和善、接受性、乐于分享喜乐予他人。喜欢与他人一起行动且促成事件发生，在学习时亦然。知晓事件未来的发展并会热列参与。最擅长于人际相处能力及具备完备常识，很有弹性能立即适应他人与环境。对生命、人、物质享受的热爱者。"
+    nickname: "体验者",
+    description: "ESFP通常热情外向，重视互动与现实体验，善于调动现场氛围。做事强调参与感和即时性，也能灵活适应环境变化。"
   }
 };

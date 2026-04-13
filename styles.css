@@ -14,6 +14,40 @@ body {
     padding: 20px;
 }
 
+.toolbar {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 12px;
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.lang-label {
+    color: #444;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.lang-select {
+    border: 1px solid #d8d8d8;
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 0.9em;
+    background: #fff;
+    cursor: pointer;
+}
+
+.lang-select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
 .container {
     width: 100%;
     max-width: 700px;
@@ -229,6 +263,7 @@ body {
 
 .option-label {
     font-weight: 500;
+    line-height: 1.5;
 }
 
 .nav-buttons {
@@ -361,6 +396,16 @@ body {
 @media (max-width: 600px) {
     body {
         padding: 10px;
+    }
+
+    .toolbar {
+        top: 10px;
+        right: 10px;
+        padding: 6px 10px;
+    }
+
+    .lang-label {
+        display: none;
     }
 
     #start-page {
@@ -617,4 +662,3 @@ body {
         padding: 20px 15px;
     }
 }
-
