@@ -33,6 +33,17 @@ cd mbti
 - HTML / CSS / JavaScript
 - 纯静态部署，无后端依赖
 
+### 项目结构
+
+- `index.html`：页面结构与入口
+- `styles.css`：样式
+- `questions.js`：中文题库与中文人格描述
+- `i18n.js`：中英文界面文案、英文题库、英文人格描述
+- `app.js`：测试流程、计分、语言切换逻辑
+- `README.md` / `README.en.md`：文档
+- `AI_PROMPT_TEMPLATE.md`：可选，题库扩展提示词模板
+- `package.json`：仓库元信息（可选）
+
 ### 题库说明
 
 - 维度：`EI` / `SN` / `TF` / `JP`
@@ -72,6 +83,17 @@ cd mbti
 
 - HTML / CSS / JavaScript
 - Fully static deployment (no backend)
+
+### Project Structure
+
+- `index.html`: page structure and entry
+- `styles.css`: styling
+- `questions.js`: Chinese question bank and Chinese type descriptions
+- `i18n.js`: bilingual UI text, English question bank, English type descriptions
+- `app.js`: test flow, scoring, and language switching
+- `README.md` / `README.en.md`: documentation
+- `AI_PROMPT_TEMPLATE.md`: optional prompt template for expanding the question bank
+- `package.json`: repository metadata (optional)
 
 ### Question Bank and Scoring
 

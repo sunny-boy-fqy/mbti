@@ -30,6 +30,17 @@ Open `index.html` directly in your browser.
 - JavaScript
 - Fully static, no backend required
 
+## Project Structure
+
+- `index.html`: page structure and app entry
+- `styles.css`: styling
+- `questions.js`: Chinese question bank + Chinese type descriptions
+- `i18n.js`: bilingual UI text + English question bank + English type descriptions
+- `app.js`: test flow, scoring, and language switching
+- `README.md` / `README.en.md`: documentation
+- `AI_PROMPT_TEMPLATE.md`: optional prompt template for generating new questions
+- `package.json`: repository metadata (optional)
+
 ## Scoring Notes
 
 - Dimensions: `EI`, `SN`, `TF`, `JP`
